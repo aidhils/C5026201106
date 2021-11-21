@@ -49,3 +49,17 @@ Route::post('revresult','ViewController@hasilrev');
 
 //route CRUD
 Route::get('/pegawai','PegawaiController@index');
+// Tambah data
+Route::get('/pegawai/tambah','PegawaiController@tambah');
+Route::post('/pegawai/store','PegawaiController@store');
+
+// Update Data
+Route::get('/pegawai/edit/{id}','PegawaiController@edit');
+Route::post('/pegawai/update','PegawaiController@update');
+
+
+//Hapus data
+Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
+
+
+
