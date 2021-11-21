@@ -45,3 +45,7 @@ Route::get('tugasphprev','ViewController@showrev');
 
 
 Route::post('revresult','ViewController@hasilrev');
+
+
+//route CRUD
+Route::get('/pegawai','PegawaiController@index');
