@@ -46,7 +46,7 @@ Route::get('tugasphprev','ViewController@showrev');
 
 Route::post('revresult','ViewController@hasilrev');
 
-
+//Malas Ngoding pegawai
 //route CRUD
 Route::get('/pegawai','PegawaiController@index');
 // Tambah data
@@ -61,5 +61,17 @@ Route::post('/pegawai/update','PegawaiController@update');
 //Hapus data
 Route::get('/pegawai/hapus/{id}','PegawaiController@hapus');
 
+//Tugas table Tugas
+Route::get('/Tugas','TugasController@index');
+
+// Tambah
+Route::get('/Tugas/tambah','TugasController@tambah');
+Route::post('/Tugas/store','TugasController@store');
 
 
+// Update
+Route::get('/Tugas/edit/{ID}','TugasController@edit');
+Route::post('/Tugas/update','TugasController@update');
+
+// Delete
+Route::get('/Tugas/hapus/{ID}','TugasController@hapus');
