@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>AIDHIL AKBAR NURDIN 5026201106</title>
-</head>
-<body>
+@extends('layout.ceria')
 
-	<H1>Aidhil Akbar Nurdin : 5026201106 </h1>
-	<h3>Data Pegawai</h3>
+@section('title', 'Tambah Tugas')
+@section('isikonten')
 
-	<a href="/Tugas"> Kembali</a>
-
-	<br/>
-	<br/>
+	@section('judulHalaman','Tambah')
 
 	<form action="/Tugas/store" method="post">
 		{{ csrf_field() }}
@@ -22,6 +14,6 @@
         Status<input type="text" name="Status" required="required" maxlength="1"></textarea> <br/>
 		<input type="submit" value="Simpan Data">
 	</form>
+    <a href="/Tugas"> Kembali</a>
+    @endsection
 
-</body>
-</html>

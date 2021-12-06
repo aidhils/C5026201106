@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>AIDHIL AKBAR NURDIN 5026201106</title>
-</head>
-<body>
+@extends('layout.ceria')
 
-	<H1>Aidhil Akbar Nurdin : 5026201106 </h1>
+@section('title', 'ABSEN PEGAWAI')
+@section('isikonten')
+
+	@section('judulHalaman','Tugas')
 
 	<a href="/Tugas/tambah"> + Tambah Tugas Baru</a>
 
 	<br/>
 	<br/>
 
-	<table border="1">
+	<table border="1"  class="table table-success table-striped">
 		<tr>
 			<th>ID</th>
 			<th>IDPegawai</th>
@@ -37,6 +35,7 @@
 		@endforeach
 	</table>
 
+    <a class="linktitle" href="/Tugas">Kembali</a>
 
-</body>
-</html>
+
+@endsection

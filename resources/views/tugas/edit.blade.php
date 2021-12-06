@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>AIDHIL AKBAR NURDIN 5026201106</title>
-</head>
-<body>
+@extends('layout.ceria')
 
-	<H1>Aidhil Akbar Nurdin : 5026201106 </h1>
-	<h3>Edit Pegawai</h3>
+@section('title', 'ABSEN PEGAWAI')
 
-	<a href="/Tugas"> Kembali</a>
+@section('isikonten')
+
+@section('judulhalaman', 'EDIT Tugas')
+
 
 	<br/>
 	<br/>
@@ -18,13 +15,27 @@
 		{{ csrf_field() }}
 		<input type="hidden" name="ID" value="{{ $T->ID }}"> <br/>
         IDPegawai <input type="number" name="IDPegawai" required="required" value="{{ $T-> IDPegawai }}"> <br/>
-        Tanggal<input type="datetime-local" name="Tanggal" required="required" value="{{ $T-> Tanggal }}"> <br/>
+
+        <div class="form-group">
+            <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
+                <div class='col-sm-4 input-group date ' id='dtpickerdemo'>
+                    <input type='text' class="form-control" name="tanggal" value="{{ $T->Tanggal }}"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
+                });
+            </script>
+
         Nama Tugas<input type="text" name="NamaTugas" required="required" maxlength="50" value="{{ $T->NamaTugas}}"> <br/>
         Status<input type="text" name="Status" required="required" maxlength="1" value="{{$T -> Status}}"> <br/>
 		<input type="submit" value="Simpan Data">
 	</form>
 	@endforeach
+    <a href="/Tugas"> Kembali</a>
+    @endsection
 
-
-</body>
-</html>

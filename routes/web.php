@@ -75,3 +75,12 @@ Route::post('/Tugas/update','TugasController@update');
 
 // Delete
 Route::get('/Tugas/hapus/{ID}','TugasController@hapus');
+
+// Absen
+Route::get('/absen','AbsenController@index');
+Route::get('/absen/tambah','AbsenController@tambah');
+Route::post('/absen/store','AbsenController@store');
+Route::get('/absen/edit/{id}','AbsenController@edit');
+Route::post('/absen/update','AbsenController@update');
+Route::get('/absen/hapus/{id}','AbsenController@hapus');
+

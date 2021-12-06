@@ -1,0 +1,102 @@
+body{
+
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    background-color: #0F4C75;
+    height: 100%;
+
+}
+a{
+    text-decoration: none;
+}
+
+nav li{
+    list-style: none;
+
+}
+
+footer{
+    width: 100%;
+    background-color: #476072;
+    padding: 1em;
+}
+
+.container-fluid{
+   background-color: #EEEEEE;
+}
+
+/* Nav */
+
+.links{
+    padding-top: 2em;
+    text-align: center;
+    padding-right: 2.5em;
+    height: 100%;
+}
+.sec{
+    padding-bottom: 3em;
+
+}
+
+.nav-link{
+    color:white;
+}
+
+.nav-link:hover{
+    color: black;
+
+   }
+
+/* End of nav */
+
+/* Header */
+.domo{
+padding-top: 2em;
+}
+
+.profile-pic{
+
+    min-width: 150px;
+    min-height: 160px;
+}
+
+.greeting{
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.nrpAidhil,.namaAidhil{
+    font-size: 2em;
+    font-weight: bolder;
+}
+.lab-tambah{
+    font-size: 1.3em;
+}
+
+/* Isi */
+.isi{
+    margin-bottom: 6em;
+}
+.titleHalaman{
+    font-size: 2em;
+    font-weight: bold;
+    margin-right: 1em;
+    margin-left: 0.5em;
+}
+.rowback{
+    margin-top: 2em;;
+}
+
+.linktitle{
+    margin-top: 2em;
+    font-size:1.4em;
+}
+
+
+/* Footer */
+.footer-text{
+    font-size: 1.5em;
+    color: white;
+    margin-left: 2em;
+}
