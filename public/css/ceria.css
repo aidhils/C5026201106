@@ -1,10 +1,9 @@
-body{
-
-    font-family: 'Poppins', sans-serif;
-}
+/* Ceria */
 nav{
-    background-color: #0F4C75;
-    height: 100%;
+    background-color: #1089FF;
+    height: 100vh;
+    border-right-color: black;
+    border-right-width: thin;
 
 }
 a{
@@ -15,88 +14,129 @@ nav li{
     list-style: none;
 
 }
+.isi{
 
-footer{
-    width: 100%;
-    background-color: #476072;
-    padding: 1em;
-}
-
-.container-fluid{
-   background-color: #EEEEEE;
-}
-
-/* Nav */
-
-.links{
-    padding-top: 2em;
-    text-align: center;
-    padding-right: 2.5em;
-    height: 100%;
-}
-.sec{
+    background-color: #E5E5E5;
+    padding-top:3em;
     padding-bottom: 3em;
 
 }
 
+body{
+
+    font-family: 'Poppins', sans-serif;
+}
+.titleHalaman{
+    font-size: 4em;
+    color:black;
+    text-align: center;
+    font-weight: bolder;
+
+}
+.profile-pic{
+    padding-bottom: 1em;
+}
+.nameceria{
+    color:white;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+li a:hover{
+    color:#FFAB4C;
+}
+
+
 .nav-link{
+    font-size: 2em;
     color:white;
 }
 
-.nav-link:hover{
-    color: black;
 
-   }
+.sec{
+    padding-top: 3em;
 
-/* End of nav */
-
-/* Header */
-.domo{
-padding-top: 2em;
 }
 
-.profile-pic{
-
-    min-width: 150px;
-    min-height: 160px;
+.box-main{
+    min-height: 100vh;
 }
 
-.greeting{
+footer{
+    background-color: #23374D;
+    width: 100vw;
+}
+.footer-text{
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
     font-size: 1.5em;
-    font-weight: bolder;
 }
 
-.nrpAidhil,.namaAidhil{
-    font-size: 2em;
-    font-weight: bolder;
-}
-.lab-tambah{
-    font-size: 1.3em;
-}
+/* END OF CERIA MAIN CSS*/
 
-/* Isi */
-.isi{
-    margin-bottom: 6em;
-}
-.titleHalaman{
-    font-size: 2em;
-    font-weight: bold;
-    margin-right: 1em;
-    margin-left: 0.5em;
-}
-.rowback{
-    margin-top: 2em;;
-}
+/* Index */
 
 .linktitle{
-    margin-top: 2em;
-    font-size:1.4em;
+    color: #3D56B2;
+     font-size: 1.5em;
+     font-weight: bolder;
+
+}
+
+.linktitle:hover{
+    color: black;
+    text-decoration: none;
+
+}
+
+.formvar{
+    font-size:2em;
+}
+
+.selop{
+    font-size: 2em;
+}
+
+.judulHalaman{
+    color:black;
+}
+
+.thindex{
+    background-color: #1089FF;
+    color:white;
+    }
+.tdindex{
+    background-color: #1687A7;
+    color:white;
+    font-weight: 400;
+}
+
+.detailtitle{
+    background-color: #1089FF;
+    color:white;
+    width:10%;
+    font-size: 2em;
+}
+
+.detailisi{
+    background-color: #93B5C6;
+    color:white;
+    font-weight: 400;
+    font-size: 2em;
+}
+
+/* Absen Custom */
+/* Index */
+.thstatus{
+    width:5%;
+}
+/*tambah*/
+.statuslabel{
+    vertical-align: middle;
+    font-size: 2em;
 }
 
 
-/* Footer */
-.footer-text{
-    font-size: 1.5em;
-    color: white;
-    margin-left: 2em;
-}
+/* Tugas */

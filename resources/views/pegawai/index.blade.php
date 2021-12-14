@@ -3,34 +3,64 @@
 @section('title', 'ABSEN PEGAWAI')
 @section('isikonten')
 
-	@section('judulHalaman','Index')
-	<a href="/absen/tambah" class="btn btn-primary" > + Tambah Pegawai Baru</a>
+	@section('judulHalaman','Pegawai Index')
 
-	<br/>
-	<br/>
 
-	<table border="1" class="table table-success table-striped">
+        <a href="/pegawai/tambah" class="btn btn-primary" > + Tambah Pegawai Baru</a>
+
+
+
+            <div class="row float-right mr-4 no-gutters">
+                <div class="col-sm-5">
+            <p class="mt-1">Cari Data Pegawai :</p>
+                </div>
+
+
+                <div class="col-sm-7">
+            <form action="/pegawai/cari" method="GET">
+                <div class="row">
+
+                <input type="text" name="cari" class="form-control col-sm-9" placeholder="Cari Pegawai .." value="{{ old('cari') }}">
+
+                <div class="col-sm-3">
+                <input type="submit" class="btn btn-info" value="CARI">
+                </div>
+
+                </div>
+            </form>
+        </div>
+
+
+            </div>
+
+
+
+
+
+	<table class="table table-bordered">
 		<tr>
-			<th>Nama</th>
-			<th>Jabatan</th>
-			<th>Umur</th>
-			<th>Alamat</th>
-			<th>Opsi</th>
+			<th class="text-center thindex">Nama</th>
+			<th class="text-center thindex">Jabatan</th>
+			<th class="text-center thindex">Umur</th>
+			<th class="text-center thindex">Alamat</th>
+			<th class="text-center thindex">Opsi</th>
 		</tr>
 		@foreach($pegawai as $p)
 		<tr>
-			<td>{{ $p->pegawai_nama }}</td>
-			<td>{{ $p->pegawai_jabatan }}</td>
-			<td>{{ $p->pegawai_umur }}</td>
-			<td>{{ $p->pegawai_alamat }}</td>
-			<td>
+			<td class="tdindex">{{ $p->pegawai_nama }}</td>
+			<td class="tdindex">{{ $p->pegawai_jabatan }}</td>
+			<td class="tdindex">{{ $p->pegawai_umur }}</td>
+			<td class="tdindex">{{ $p->pegawai_alamat }}</td>
+			<td class="tdindex">
+                <a href="/pegawai/view/{{ $p->pegawai_id }}" class="btn btn-warning">View Detail</a>
+
 				<a href="/pegawai/edit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>
-				|
+
 				<a href="/pegawai/hapus/{{ $p->pegawai_id }}"class="btn btn-danger">Hapus</a>
 			</td>
 		</tr>
 		@endforeach
 	</table>
 
-    <a class="linktitle" href="/pegawai">Kembali</a>
+    {{ $pegawai->links() }}
     @endsection

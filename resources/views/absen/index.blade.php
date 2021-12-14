@@ -9,28 +9,33 @@
 	<br/>
 	<br/>
 
-	<table class="table table-success table-striped">
+	<table class="table table-bordered">
 		<tr>
-			<th>ID</th>
-			<th>ID Pegawai</th>
-			<th>Tanggal</th>
-			<th>Status</th>
-			<th>Opsi</th>
+			<th class="text-center thindex">Nama Pegawai</th>
+			<th class="text-center thindex">Tanggal</th>
+			<th class="text-center thindex thstatus">Status</th>
+			<th class="text-center thindex">Opsi</th>
 		</tr>
 		@foreach($absen as $p)
 		<tr>
-			<td>{{ $p->ID }}</td>
-			<td>{{ $p->IDPegawai }}</td>
-			<td>{{ $p->Tanggal }}</td>
-			<td>{{ $p->Status }}</td>
-			<td>
-				<a href="/absen/edit/{{ $p->ID }}" class="btn btn-warning" >Edit</a>
-				|
-				<a href="/absen/hapus/{{ $p->ID }}" class="btn btn-danger" >Hapus</a>
-			</td>
+			<td class="tdindex">{{ $p->pegawai_nama}}</td>
+			<td class="tdindex">{{ $p->Tanggal }}</td>
+			<td class="tdindex text-center">{{ $p->Status }}</td>
+			<td class="tdindex">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                <a href="/absen/view/{{ $p->ID}}" class="btn btn-warning col-sm-2">View Detail</a>
+                <div class="col-sm-1"></div>
+				<a href="/absen/edit/{{ $p->ID }}" class="btn btn-warning col-sm-2" >Edit</a>
+                <div class="col-sm-1"></div>
+				<a href="/absen/hapus/{{ $p->ID }}" class="btn btn-danger col-sm-2" >Hapus</a>
+                <div class="col-sm-2"></div>
+            </div>
+            </td>
 		</tr>
 		@endforeach
 	</table>
+
 
     <a class="linktitle" href="/absen">Kembali</a>
 

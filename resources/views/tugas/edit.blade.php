@@ -13,26 +13,48 @@
 	@foreach($Tugas as $T)
 	<form action="/Tugas/update" method="post">
 		{{ csrf_field() }}
-		<input type="hidden" name="ID" value="{{ $T->ID }}"> <br/>
-        IDPegawai <input type="number" name="IDPegawai" required="required" value="{{ $T-> IDPegawai }}"> <br/>
+        <div class="row form-group">
+            <label for="IDPegawai" class="col-sm-1 formvar text-center">Pegawai</label>
 
-        <div class="form-group">
-            <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
-                <div class='col-sm-4 input-group date ' id='dtpickerdemo'>
-                    <input type='text' class="form-control" name="tanggal" value="{{ $T->Tanggal }}"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+
+            <select class="form-control col-sm-4" id="IDPegawai" name="IDPegawai" required="required">
+                @foreach($pegawai as $peg)
+                <option class="selop" value="{{ $peg->pegawai_id }}" @if ($peg->pegawai_id === $T->IDPegawai) selected="selected" @endif> {{ $peg->pegawai_nama }}</option>
+                @endforeach
+                </select>
+        </div>
+
+        <div class="row form-group">
+            <label for="tanggal" class="col-sm-1 formvar" >Tanggal</label>
+         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ $T->Tanggal}}">
+        </div>
+
+        <div class="row form-group">
+            <label for="NamaTugas" class="col-sm-1 formvar" >Nama Tugas</label>
+            <input type="text" name="NamaTugas"  class="form-control col-sm-6 mt-4"  required="required" maxlength="50" value="{{ $T->NamaTugas}}">
+          </div>
+
+
+          <div class="row form-group">
+            <label for="status" class="col-sm-1 formvar">Status</label>
+
+
+            <div class="col-sm-8">
+                <div class="row mt-1">
+                    <div class="col-sm-2">
+
+                        <input type="radio" class="custom-control-input" id="hadir" name="Status" value="S"  @if ($T->Status === "H") checked="checked" @endif>
+                        <label class="custom-control-label statuslabel" for="hadir">Sedia</label>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <input type="radio" class="custom-control-input" id="tidak" name="Status" value="T"  @if ($T->Status === "H") checked="checked" @endif>
+                        <label class="custom-control-label statuslabel" for="tidak">Tidak Sedia</label>
+
+                    </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
-                });
-            </script>
-
-        Nama Tugas<input type="text" name="NamaTugas" required="required" maxlength="50" value="{{ $T->NamaTugas}}"> <br/>
-        Status<input type="text" name="Status" required="required" maxlength="1" value="{{$T -> Status}}"> <br/>
+        </div>
 		<input type="submit" value="Simpan Data">
 	</form>
 	@endforeach

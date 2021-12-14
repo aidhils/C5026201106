@@ -10,14 +10,35 @@ class PegawaiController extends Controller
     public function index()
     {
     	// mengambil data dari table pegawai
-    	$pegawai = DB::table('pegawai')->get();
+    	//$pegawai = DB::table('pegawai')->get();
+        $pegawai = DB::table('pegawai')->paginate(10);
+
 
     	// mengirim data pegawai ke view index
     	return view('pegawai.index',['pegawai' => $pegawai]);
 
     }
 
-        // method untuk menampilkan view form tambah pegawai
+    // Search
+
+
+	public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+
+    	// mengambil data dari table pegawai sesuai pencarian data
+		$pegawai = DB::table('pegawai')
+		->where('pegawai_nama','like',"%".$cari."%")
+        ->orWhere('pegawai_alamat','like', "%" . $cari . "%")
+		->paginate();
+
+    	// mengirim data pegawai ke view index
+		return view('pegawai.index',['pegawai' => $pegawai]);
+        // menangkap data pencarian
+        $cari = $request->cari;
+    }
+
     public function tambah()
     {
 
@@ -27,8 +48,8 @@ class PegawaiController extends Controller
     }
 
     // method untuk insert data ke table pegawai
-        public function store(Request $request)
-        {
+    public function store(Request $request)
+    {
             // insert data ke table pegawai
             DB::table('pegawai')->insert([
                 'pegawai_nama' => $request->nama,
@@ -37,21 +58,31 @@ class PegawaiController extends Controller
                 'pegawai_alamat' => $request->alamat
             ]);
             // alihkan halaman ke halaman pegawai
-            return redirect('/pegawai');
+           return redirect('/pegawai');
 
-        }
+    }
 
-            // method untuk edit data pegawai
-        public function edit($id)
-        {
-            // mengambil data pegawai berdasarkan id yang dipilih
-            $pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
-            // passing data pegawai yang didapat ke view edit.blade.php
-            return view('pegawai.edit',['pegawai' => $pegawai]);
+    // method untuk edit data pegawai
+    public function edit($id)
+    {
+         // mengambil data pegawai berdasarkan id yang dipilih
+        $pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+         // passing data pegawai yang didapat ke view edit.blade.php
+         return view('pegawai.edit',['pegawai' => $pegawai]);
 
-        }
+    }
 
-        // update data pegawai
+    // method untuk view detail data pegawai
+    public function detail($id)
+    {
+         // mengambil data pegawai berdasarkan id yang dipilih
+        $pegawai = DB::table('pegawai')->where('pegawai_id',$id)->get();
+         // passing data pegawai yang didapat ke view edit.blade.php
+         return view('pegawai.detail',['pegawai' => $pegawai]);
+
+    }
+
+    // update data pegawai
     public function update(Request $request)
     {
         // update data pegawai

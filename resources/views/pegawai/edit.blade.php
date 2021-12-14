@@ -1,24 +1,50 @@
-@extends('layout.ceria')
+   @extends('layout.ceria')
 
-@section('title', 'Edit Pegawai')
-@section('isikonten')
+    @section('title', 'ABSEN PEGAWAI')
+    @section('isikonten')
+
+        @section('judulHalaman','Tambah')
+        @foreach($pegawai as $p)
+        <form action="/pegawai/update" method="post">
+            {{ csrf_field() }}
+
+            <div class="row form-group">
+
+                <label for="nama" class="col-sm-1 formvar text-center">
+                    Nama
+                </label>
+
+                <input type="text" class="form-control col-sm-4" name="nama" required="required"  value="{{ $p->pegawai_nama }}"> <br/>
+
+            </div>
+
+            <div class="row form-group">
+                <label for="jabatan" class="col-sm-1 formvar text-center">
+                    Jabatan
+                </label>
+                    <input type="text" class="form-control col-sm-4" name="jabatan" required="required"  value="{{ $p->pegawai_jabatan }}">
+            </div>
+
+            <div class="row form-group">
+                <label for="umur" class="col-sm-1 formvar text-center">
+                Umur
+                </label>
+                <input type="number" class="form-control col-sm-4" name="umur" required="required" value="{{ $p->pegawai_umur }}">
+
+            </div>
+
+            <div class="row form-group">
+                <label for="Alamat" class="col-sm-1 formvar text-center">
+                Alamat
+                </label>
+             <textarea name="alamat"  class="form-control col-sm-4"  required="required"  >{{ $p->pegawai_alamat}}</textarea>
+            </div>
 
 
+            <input type="submit" value="Simpan Data" class="btn btn-success ml-2"> <br/>
+            <a class="linktitle mt-4 ml-2" href="/pegawai">Kembali</a>
 
-	@section('judulHalaman','Edit Pegawai')
+        </form>
+        @endforeach
 
-	@foreach($pegawai as $p)
-	<form action="/pegawai/update" method="post">
-		{{ csrf_field() }}
-		<input type="hidden" name="id" value="{{ $p->pegawai_id }}"> <br/>
-		Nama <input type="text" required="required" name="nama" value="{{ $p->pegawai_nama }}"> <br/>
-		Jabatan <input type="text" required="required" name="jabatan" value="{{ $p->pegawai_jabatan }}"> <br/>
-		Umur <input type="number" required="required" name="umur" value="{{ $p->pegawai_umur }}"> <br/>
-		Alamat <textarea required="required" name="alamat">{{ $p->pegawai_alamat }}</textarea> <br/>
-		<input type="submit" value="Simpan Data">
-	</form>
-	@endforeach
-    <a href="/pegawai"> Kembali</a>
-    @endsection
-
-
+        @endsection

@@ -10,36 +10,42 @@
 	@foreach($absen as $p)
 	<form action="/absen/update" method="post">
 		{{ csrf_field() }}
-		<input type="hidden" name="id" value="{{ $p->ID }}"> <br/>
-        Pegawai <select id="IDPegawai" name="IDPegawai" required="required">
+        <input type="hidden" name="id" value="{{ $p->ID }}">
+        <div class="row form-group">
+            <label for="IDPegawai" class="col-sm-1 formvar text-center">Pegawai</label>
+         <select class="form-control col-sm-4" id="IDPegawai" name="IDPegawai" required="required">
             @foreach($pegawai as $peg)
-                <option value="{{ $peg->pegawai_id }}" @if ($peg->pegawai_id === $p->IDPegawai) selected="selected" @endif> {{ $peg->pegawai_nama }}</option>
+                <option class="selop" value="{{ $peg->pegawai_id }}" @if ($peg->pegawai_id === $p->IDPegawai) selected="selected" @endif> {{ $peg->pegawai_nama }}</option>
             @endforeach
-        </select><br>
-        <div class="form-group">
-            <label for="dtpickerdemo" class="col-sm-2 control-label">Tanggal :</label>
-                <div class='col-sm-4 input-group date ' id='dtpickerdemo'>
-                    <input type='text' class="form-control" name="tanggal" value="{{ $p->Tanggal }}"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+        </select>
+
+        </div>
+
+        <div class="row form-group">
+            <label for="tanggal" class="col-sm-1 formvar" >Tanggal</label>
+         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ $p->Tanggal}}">
+        </div>
+
+
+        <div class="row form-group">
+            <label for="status" class="col-sm-1 formvar">Status</label>
+
+            <div class="col-sm-8">
+                <div class="row mt-1">
+                    <div class="col-sm-2">
+        <input type="radio"class="custom-control-input" id="hadir" name="status" value="H" @if ($p->Status === "H") checked="checked" @endif>
+        <label class="custom-control-label statuslabel"for="hadir">HADIR</label>
+                    </div>
+                    <div class="col-sm-2">
+        <input type="radio" class="custom-control-input" id="tidak" name="status" value="T" @if ($p->Status === "T") checked="checked" @endif>
+        <label class="custom-control-label statuslabel" for="tidak">TIDAK HADIR</label><br>
+                    </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(function () {
-                    $('#dtpickerdemo').datetimepicker({format : "YYYY-MM-DD hh:mm", "defaultDate":new Date() });
-                });
-            </script>
-            <br>
-		Status
-        <input type="radio" id="hadir" name="status" value="H" @if ($p->Status === "H") checked="checked" @endif>
-        <label for="hadir">HADIR</label>
-        <input type="radio" id="tidak" name="status" value="T" @if ($p->Status === "T") checked="checked" @endif>
-        <label for="tidak">TIDAK HADIR</label><br>
-
-		<input type="submit" value="Simpan Data">
+        </div>
+        <input type="submit" value="Simpan Data" class="btn btn-success ml-2">
 	</form>
 	@endforeach
-    <a href="/Tugas"> Kembali</a>
+    <a class="linktitle mt-4 ml-2" href="/absen"> Kembali</a>
 
     @endsection

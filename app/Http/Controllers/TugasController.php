@@ -14,7 +14,12 @@ class TugasController extends Controller
                     public function index()
                     {
 
-                        $tugas = DB::table('tugas')->get();
+
+                    $tugas = DB::table('Tugas')
+                    ->join('pegawai', 'tugas.IDPegawai', '=', 'pegawai.pegawai_id')
+                    ->select('Tugas.*', 'pegawai.pegawai_nama')
+                    ->paginate() ;
+
 
                         return view('tugas.index',['tugas' => $tugas]);
 
@@ -25,9 +30,8 @@ class TugasController extends Controller
                 public function tambah()
                     {
 
-
-                        return view('tugas.tambah');
-
+                        $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
+                        return view('tugas.tambah',['pegawai' => $pegawai]);
                     }
 
                     // Storing
@@ -54,7 +58,9 @@ class TugasController extends Controller
 
                     $Tugas = DB::table('Tugas')->where('ID',$ID)->get();
 
-                    return view('tugas.edit',['Tugas' => $Tugas]);
+                     $pegawai = DB::table('pegawai')->orderBy('pegawai_nama','asc')->get();
+
+                    return view('tugas.edit',['Tugas' => $Tugas,'pegawai' => $pegawai]);
 
                 }
 

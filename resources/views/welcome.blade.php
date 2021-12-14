@@ -94,6 +94,7 @@
                     <a href="prakkedua">Praktikum 2</a>
                     <a href="etssemtiga">ETS</a>
                     <a href="tugasphp">Tugas PHP</a>
+                    <a href="/pegawai">EAS</a>
                 </div>
             </div>
         </div>

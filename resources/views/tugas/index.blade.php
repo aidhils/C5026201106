@@ -5,37 +5,42 @@
 
 	@section('judulHalaman','Tugas')
 
-	<a href="/Tugas/tambah"> + Tambah Tugas Baru</a>
+    <a href="/Tugas/tambah" class="btn btn-primary" > + Tambah Tugas Baru</a>
 
 	<br/>
 	<br/>
 
-	<table border="1"  class="table table-success table-striped">
+    <table class="table table-bordered">
 		<tr>
-			<th>ID</th>
-			<th>IDPegawai</th>
-			<th>Tanggal </th>
-			<th>Nama Tugas</th>
-			<th>Status </th>
-            <th>Opsi</th>
+			<th class="text-center thindex">Nama Pegawai</th>
+			<th class="text-center thindex">Tanggal </th>
+			<th class="text-center thindex">Nama Tugas</th>
+			<th class="text-center thindex">Status </th>
+            <th class="text-center thindex">Opsi</th>
 		</tr>
 		@foreach($tugas as $t)
 		<tr>
-			<td>{{ $t->ID}}</td>
-			<td>{{ $t->IDPegawai }}</td>
-			<td>{{ $t->Tanggal }}</td>
-            <td>{{ $t->NamaTugas}}</td>
-			<td>{{ $t->Status }}</td>
-			<td>
-				<a href="/Tugas/edit/{{ $t->ID}}">Edit</a>
-				|
-				<a href="/Tugas/hapus/{{ $t->ID}}">Hapus</a>
-			</td>
+			<td class="tdindex">{{ $t->pegawai_nama}}</td>
+			<td class="tdindex">{{ $t->Tanggal }}</td>
+            <td class="tdindex">{{ $t->NamaTugas}}</td>
+			<td class="tdindex">{{ $t->Status }}</td>
+            <td class="tdindex">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                <a href="/Tugas/view/{{ $t->ID}}" class="btn btn-warning col-sm-2">View Detail</a>
+                <div class="col-sm-1"></div>
+				<a href="/Tugas/edit/{{ $t->ID }}" class="btn btn-warning col-sm-2" >Edit</a>
+                <div class="col-sm-1"></div>
+				<a href="/Tugas/hapus/{{ $t->ID }}" class="btn btn-danger col-sm-2" >Hapus</a>
+                <div class="col-sm-2"></div>
+            </div>
+            </td>
 		</tr>
 		@endforeach
 	</table>
+    {{ $tugas -> links() }}
 
-    <a class="linktitle" href="/Tugas">Kembali</a>
+    <a class="linktitle mt-4" href="/Tugas">Kembali</a>
 
 
 @endsection

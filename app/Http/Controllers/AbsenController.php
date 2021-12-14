@@ -9,70 +9,91 @@ class AbsenController extends Controller
 {
     public function index()
     {
-    	// mengambil data dari table pegawai
-    	$absen = DB::table('absen')->get();
 
-    	// mengirim data pegawai ke view index
+
+        $absen = DB::table('absen')
+        ->join('pegawai', 'absen.IDPegawai', '=', 'pegawai.pegawai_id')
+        ->select('absen.*', 'pegawai.pegawai_nama')
+        ->paginate() ;
+
+
+
     	return view('absen.index',['absen' => $absen]);
 
     }
-    // method untuk menampilkan view form tambah pegawai
-public function tambah()
-{
 
-	// memanggil view tambah
-    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
-	return view('absen.tambah',['pegawai' => $pegawai]);
 
-}
-// method untuk insert data ke table pegawai
-public function store(Request $request)
+    public function tambah()
     {
-        //DB::table()->insert();
-        // insert data ke table pegawai
-        DB::table('absen')->insert([
-            'ID' => $request->ID,
-            'IDPegawai' => $request->IDPegawai,
-            'Tanggal' => $request->tanggal,
-            'Status' => $request->status
-        ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/absen');
+
+        // memanggil view tambah
+        $pegawai = DB::table('pegawai')->orderBy('pegawai_nama', 'asc')->get();
+        return view('absen.tambah',['pegawai' => $pegawai]);
+
     }
-    // method untuk edit data pegawai
-public function edit($id)
-{
-	// mengambil data pegawai berdasarkan id yang dipilih
-	$absen = DB::table('absen')->where('ID',$id)->get();
-
-    $pegawai = DB::table('pegawai')->orderBy('pegawai_nama','asc')->get();
-
-    $judul = "Edit Data";
 
 
-	// passing data pegawai yang didapat ke view edit.blade.php
-	return view('absen.edit',['absen' => $absen,'pegawai' => $pegawai,'judul' => $judul]);
-}
-// update data pegawai
-public function update(Request $request)
-{
-	// update data pegawai
-	DB::table('absen')->where('ID',$request->id)->update([
+    public function store(Request $request)
+        {
+            //DB::table()->insert();
+
+            DB::table('absen')->insert([
+                'ID' => $request->ID,
+                'IDPegawai' => $request->IDPegawai,
+                'Tanggal' => $request->tanggal,
+                'Status' => $request->status
+            ]);
+
+            return redirect('/absen');
+        }
+
+            // method untuk view detail absen
+    public function detail($id)
+    {
+
+         $absen = DB::table('absen')
+         ->leftJoin('pegawai', 'absen.IDPegawai', '=', 'pegawai.pegawai_id')
+         ->where('ID',$id)->get();
+
+         return view('absen.detail',['absen' => $absen]);
+
+    }
+
+
+
+    public function edit($ID)
+    {
+
+        $absen = DB::table('absen')->where('ID',$ID)->get();
+
+        $pegawai = DB::table('pegawai')->orderBy('pegawai_nama','asc')->get();
+
+        $judul = "Edit Data";
+
+
+        return view('absen.edit',['absen' => $absen,'pegawai' => $pegawai,'judul' => $judul]);
+    }
+
+
+    public function update(Request $request)
+    {
+
+        DB::table('absen')->where('ID',$request->ID)->update([
             'IDPegawai' => $request->IDPegawai,
             'Tanggal' => $request->tanggal,
             'Status' => $request->status
 	]);
-	// alihkan halaman ke halaman pegawai
-	return redirect('/absen');
-}
-// method untuk hapus data pegawai
-public function hapus($id)
-{
-	// menghapus data pegawai berdasarkan id yang dipilih
-	DB::table('absen')->where('ID',$id)->delete();
 
-	// alihkan halaman ke halaman pegawai
-	return redirect('/absen');
-}
+        return redirect('/absen');
+    }
+
+    public function hapus($id)
+    {
+
+        DB::table('absen')->where('ID',$id)->delete();
+
+
+        return redirect('/absen');
+    }
 }
 
