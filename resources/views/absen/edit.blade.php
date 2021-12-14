@@ -23,7 +23,7 @@
 
         <div class="row form-group">
             <label for="tanggal" class="col-sm-1 formvar" >Tanggal</label>
-         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ $p->Tanggal}}">
+         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ date('Y-m-d\TH:i',strtotime( $p -> Tanggal)) }}">
         </div>
 
 

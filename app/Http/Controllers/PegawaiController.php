@@ -72,7 +72,7 @@ class PegawaiController extends Controller
 
     }
 
-    // method untuk view detail data pegawai
+
     public function detail($id)
     {
          // mengambil data pegawai berdasarkan id yang dipilih

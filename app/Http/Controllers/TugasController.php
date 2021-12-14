@@ -69,10 +69,11 @@ class TugasController extends Controller
                     {
 
                         DB::table('Tugas')->where('ID',$request->ID)->update([
+
                             'IDPegawai' => $request-> IDPegawai,
-                            'Tanggal' => $request-> Tanggal,
+                            'Tanggal' => $request-> tanggal,
                             'NamaTugas' => $request-> NamaTugas,
-                            'Status' => $request-> Status
+                            'Status' => $request-> status
                         ]);
 
                         return redirect('/Tugas');

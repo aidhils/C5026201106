@@ -26,7 +26,7 @@
 
         <div class="row form-group">
             <label for="tanggal" class="col-sm-1 formvar" >Tanggal</label>
-         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ $T->Tanggal}}">
+         <input step="1" class="form-control col-sm-6" type="datetime-local" id="tanggal" name="tanggal" value="{{ date('Y-m-d\TH:i',strtotime( $T -> Tanggal)) }}">
         </div>
 
         <div class="row form-group">
@@ -43,21 +43,21 @@
                 <div class="row mt-1">
                     <div class="col-sm-2">
 
-                        <input type="radio" class="custom-control-input" id="hadir" name="Status" value="S"  @if ($T->Status === "H") checked="checked" @endif>
+                        <input type="radio" class="custom-control-input" id="hadir" name="Status" value="S"  @if ($T->Status === "S") checked="checked" @endif required>
                         <label class="custom-control-label statuslabel" for="hadir">Sedia</label>
                     </div>
 
                     <div class="col-sm-2">
-                        <input type="radio" class="custom-control-input" id="tidak" name="Status" value="T"  @if ($T->Status === "H") checked="checked" @endif>
+                        <input type="radio" class="custom-control-input" id="tidak" name="Status" value="T"  @if ($T->Status === "T") checked="checked" @endif>
                         <label class="custom-control-label statuslabel" for="tidak">Tidak Sedia</label>
 
                     </div>
                 </div>
             </div>
         </div>
-		<input type="submit" value="Simpan Data">
+		<input type="submit" value="Simpan Data" class="btn btn-success ml-2">
 	</form>
 	@endforeach
-    <a href="/Tugas"> Kembali</a>
+    <a class="linktitle mt-4 ml-2" href="/Tugas"> Kembali</a>
     @endsection
 

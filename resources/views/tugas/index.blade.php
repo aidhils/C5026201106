@@ -1,6 +1,6 @@
 @extends('layout.ceria')
 
-@section('title', 'ABSEN PEGAWAI')
+@section('title', 'TUGAS PEGAWAI')
 @section('isikonten')
 
 	@section('judulHalaman','Tugas')

@@ -21,7 +21,7 @@
 
         <div class="row form-group">
             <label for="Tanggal" class="col-sm-1 formvar text-center" >Tanggal</label>
-		    <input type="date" class="form-control col-sm-6" name="Tanggal" value="<?php echo date('Y-m-d'); ?>"  required="required">
+		    <input step="1" type="datetime-local" class="form-control col-sm-6" name="Tanggal" id="Tanggal" required="required">
         </div>
 
         <div class="row form-group">
@@ -56,6 +56,27 @@
 		<input type="submit" value="Simpan Data"  class="btn btn-secondary"> <br/>
         <a class="linktitle mt-4"href="/Tugas"> Kembali</a>
 	</form>
+
+    <script>
+        // window.addEventListener("load", function() {
+	var now = new Date();
+	var utcString = now.toISOString().substring(0,19);
+	var year = now.getFullYear();
+	var month = now.getMonth() + 1;
+	var day = now.getDate();
+	var hour = now.getHours();
+	var minute = now.getMinutes();
+	var second = now.getSeconds();
+	var localDatetime = year + "-" +
+    (month < 10 ? "0" + month.toString() : month) + "-" +
+    (day < 10 ? "0" + day.toString() : day) + "T" +
+    (hour < 10 ? "0" + hour.toString() : hour) + ":" +
+    (minute < 10 ? "0" + minute.toString() : minute) +
+    utcString.substring(16,19);
+	var datetimeField = document.getElementById("Tanggal");
+	datetimeField.value = localDatetime;
+//});
+        </script>
 
     @endsection
 
