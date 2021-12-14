@@ -75,16 +75,13 @@ class AbsenController extends Controller
     }
 
 
-
     public function update(Request $request)
     {
-
-        DB::table('absen')->where('ID',$request->ID)->update([
+        DB::table('absen')->where('ID', $request->id)->update([
             'IDPegawai' => $request->IDPegawai,
             'Tanggal' => $request->tanggal,
             'Status' => $request->status
-	]);
-
+        ]);
         return redirect('/absen');
     }
 

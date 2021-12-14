@@ -63,7 +63,6 @@ class MobilController extends Controller
 
 
 
-    // method untuk edit data pegawai
     public function edit($kodemobil)
     {
          // mengambil data pegawai berdasarkan id yang dipilih
@@ -75,7 +74,7 @@ class MobilController extends Controller
 
 
 
-    // method untuk view detail data pegawai
+
     public function detail($kodemobil)
     {
          // mengambil data pegawai berdasarkan id yang dipilih
@@ -85,17 +84,16 @@ class MobilController extends Controller
 
     }
 
-    // update data pegawai
+
     public function update(Request $request)
-    {
-        // update data pegawai
+{
         DB::table('mobil')->where('kodemobil',$request->kodemobil)->update([
             'kodemobil' => $request->kodemobil,
             'merkmobil' => $request->merkmobil,
             'stockmobil' => $request->stockmobil,
             'tersedia' => $request->tersedia
         ]);
-        // alihkan halaman ke halaman pegawai
+
         return redirect('/mobil');
     }
 

@@ -10,10 +10,11 @@
 	<br/>
 	<br/>
 
-	@foreach($Tugas as $T)
+	@foreach($tugas as $T)
 	<form action="/Tugas/update" method="post">
 		{{ csrf_field() }}
         <div class="row form-group">
+            <input type="hidden" name="id" value="{{ $T->ID }}">
             <label for="IDPegawai" class="col-sm-1 formvar text-center">Pegawai</label>
 
 

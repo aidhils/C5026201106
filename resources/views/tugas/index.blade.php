@@ -27,11 +27,11 @@
             <td class="tdindex">
                 <div class="row">
                     <div class="col-sm-2"></div>
-                <a href="/Tugas/view/{{ $t->ID}}" class="btn btn-warning col-sm-2">View Detail</a>
+                <a href="/Tugas/view/{{ $t-> ID}}" class="btn btn-warning col-sm-2">View Detail</a>
                 <div class="col-sm-1"></div>
-				<a href="/Tugas/edit/{{ $t->ID }}" class="btn btn-warning col-sm-2" >Edit</a>
+				<a href="/Tugas/edit/{{ $t-> ID }}" class="btn btn-warning col-sm-2" >Edit</a>
                 <div class="col-sm-1"></div>
-				<a href="/Tugas/hapus/{{ $t->ID }}" class="btn btn-danger col-sm-2" >Hapus</a>
+				<a href="/Tugas/hapus/{{ $t-> ID }}" class="btn btn-danger col-sm-2" >Hapus</a>
                 <div class="col-sm-2"></div>
             </div>
             </td>

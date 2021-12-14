@@ -56,26 +56,21 @@ class TugasController extends Controller
                 public function edit($ID)
                 {
 
-                    $Tugas = DB::table('Tugas')->where('ID',$ID)->get();
+                    $tugas = DB::table('tugas')->where('ID',$ID)->get();
 
                      $pegawai = DB::table('pegawai')->orderBy('pegawai_nama','asc')->get();
 
-                    return view('tugas.edit',['Tugas' => $Tugas,'pegawai' => $pegawai]);
-
+                    return view('tugas.edit',['tugas' => $tugas,'pegawai' => $pegawai]);
                 }
-
 
                 public function update(Request $request)
                     {
-
-                        DB::table('Tugas')->where('ID',$request->ID)->update([
-
+                        DB::table('tugas')->where('ID', $request->id)->update([
                             'IDPegawai' => $request-> IDPegawai,
                             'Tanggal' => $request-> tanggal,
                             'NamaTugas' => $request-> NamaTugas,
-                            'Status' => $request-> status
+                            'Status' => $request-> Status
                         ]);
-
                         return redirect('/Tugas');
                     }
 
