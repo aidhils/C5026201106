@@ -1,13 +1,13 @@
    @extends('layout.ceria')
 
-    @section('title', 'ABSEN PEGAWAI')
+    @section('title', 'EDIT PEGAWAI')
     @section('isikonten')
 
-        @section('judulHalaman','Tambah')
+        @section('judulHalaman','Edit')
         @foreach($pegawai as $p)
         <form action="/pegawai/update" method="post">
             {{ csrf_field() }}
-
+            <input type="hidden" name="pegawai_id" value="{{ $p->pegawai_id}}">
             <div class="row form-group">
 
                 <label for="nama" class="col-sm-1 formvar text-center">

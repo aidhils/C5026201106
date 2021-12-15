@@ -52,11 +52,13 @@
 			<td class="tdindex">{{ $p->pegawai_umur }}</td>
 			<td class="tdindex">{{ $p->pegawai_alamat }}</td>
 			<td class="tdindex">
-                <a href="/pegawai/view/{{ $p->pegawai_id }}" class="btn btn-warning">View Detail</a>
-
-				<a href="/pegawai/edit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>
-
-				<a href="/pegawai/hapus/{{ $p->pegawai_id }}"class="btn btn-danger">Hapus</a>
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                <a href="/pegawai/view/{{ $p->pegawai_id }}" class="btn btn-warning col-sm-3">View Detail</a>
+                <div class="col-sm-1"></div>
+				<a href="/pegawai/edit/{{ $p->pegawai_id }}" class="btn btn-warning col-sm-2">Edit</a>
+                <div class="col-sm-1"></div>
+				<a href="/pegawai/hapus/{{ $p->pegawai_id }}"class="btn btn-danger col-sm-2">Hapus</a>
 			</td>
 		</tr>
 		@endforeach

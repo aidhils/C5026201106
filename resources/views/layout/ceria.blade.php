@@ -68,9 +68,10 @@
                             <a  class="nav-link" href="/mobil">Praktikum Modul 3</a>
                              </li>
 
-                             <li class="sec">
-                            <a  class="nav-link" href="/praktikum">Praktikum</a>
-                            </li>
+
+                            <li class="sec">
+                                <a  class="nav-link" href="/keranjangbelanja">UAS</a>
+                                </li>
 
                         </ul>
                     </nav>

@@ -114,3 +114,12 @@ Route::get('/mobil/edit/{kodemobil}','MobilController@edit');
 Route::post('/mobil/update','MobilController@update');
 Route::get('/mobil/view/{kodemobil}','MobilController@detail');
 Route::get('/mobil/hapus/{kodemobil}','MobilController@hapus');
+
+//=======Mobil======================
+Route::get('/keranjangbelanja','keranjangbelanjaController@index');
+Route::get('/keranjangbelanja/tambah','keranjangbelanjaController@tambah');
+Route::post('/keranjangbelanja/store','keranjangbelanjaController@store');
+Route::get('/keranjangbelanja/edit/{ID}','keranjangbelanjaController@edit');
+Route::post('keranjangbelanja/update','keranjangbelanjaController@update');
+Route::get('/keranjangbelanja/hapus/{ID}','keranjangbelanjaController@hapus');
+

@@ -1,10 +1,10 @@
 @extends('layout.ceria')
 
-@section('title', 'ABSEN PEGAWAI')
+@section('title', 'Mobil')
 
 @section('isikonten')
 
-@section('judulhalaman', 'EDIT Tugas')
+@section('judulhalaman', 'EDIT Mobil')
 
 
 	@foreach($mobil as $m)
